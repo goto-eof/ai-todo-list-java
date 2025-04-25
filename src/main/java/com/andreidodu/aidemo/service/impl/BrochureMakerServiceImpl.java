@@ -1,5 +1,7 @@
-package com.andreidodu.aidemo.agent;
+package com.andreidodu.aidemo.service.impl;
 
+import com.andreidodu.aidemo.agent.BrochureMakerAgent;
+import com.andreidodu.aidemo.service.BrochureMakerService;
 import com.andreidodu.aidemo.util.UrlUtil;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
@@ -15,10 +17,11 @@ import java.util.Set;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class BrochureMakerAgentImpl {
+public class BrochureMakerServiceImpl implements BrochureMakerService {
     private final OpenAiChatModel openAiChatModel;
 
 
+    @Override
     public void makeBrochure(String website) {
         try {
             Set<String> linkList = UrlUtil.findLinks(website);
