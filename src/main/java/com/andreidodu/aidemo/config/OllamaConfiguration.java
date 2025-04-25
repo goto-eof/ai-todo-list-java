@@ -1,23 +1,23 @@
 package com.andreidodu.aidemo.config;
 
-import dev.langchain4j.model.ollama.OllamaLanguageModel;
+import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
 
+import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
+
 @Configuration
 public class OllamaConfiguration {
 
-    @Bean(name = "ollamaLanguageModel")
-    public OllamaLanguageModel getOllama(@Value("${com.andreidodu.ai-demo.llama-base-url}") String baseUrl,
-                                         @Value("${com.andreidodu.ai-demo.llama-model}") String model,
-                                         @Value("${com.andreidodu.ai-demo.llama-timeout-seconds}") Integer timeoutSeconds) {
-        return OllamaLanguageModel.builder()
-                .baseUrl(baseUrl)
-                .modelName(model)
-                .timeout(Duration.ofSeconds(timeoutSeconds))
+    @Bean(name = "openAiChatModel")
+    public OpenAiChatModel getModel(@Value("${com.andreidodu.company.brochure.openai-api-key}") String apiKey) {
+        return OpenAiChatModel.builder()
+                .apiKey(apiKey)
+                .modelName(GPT_4_O_MINI)
+                .timeout(Duration.ofSeconds(60))
                 .build();
     }
 

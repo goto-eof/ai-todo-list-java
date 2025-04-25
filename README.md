@@ -1,14 +1,7 @@
-# LLAMA Sentiment Analysis POC (Java)
-![header](images/header.png)
-### Run LLAMA container
+# AI Company Brochure Generator (Java)
 
-```bash
-sudo docker pull ollama/ollama
-sudo docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
-sudo docker exec -it ollama ollama run llama3
-```
+![console-result](images/company-brochure-generator-header.png)
 
 ### Runt the Java application
 
-Run the application and look at the console
-![console-result](images/ai-interaction.png)
+Just run the application and look at the console
