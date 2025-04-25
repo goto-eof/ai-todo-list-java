@@ -10,7 +10,7 @@ import java.time.Duration;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
 @Configuration
-public class OllamaConfiguration {
+public class AiConfiguration {
 
     @Bean(name = "openAiChatModel")
     public OpenAiChatModel getModel(@Value("${com.andreidodu.company.brochure.openai-api-key}") String apiKey) {
