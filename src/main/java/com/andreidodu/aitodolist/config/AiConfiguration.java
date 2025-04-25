@@ -1,4 +1,4 @@
-package com.andreidodu.aibrochure.config;
+package com.andreidodu.aitodolist.config;
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +13,7 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 public class AiConfiguration {
 
     @Bean(name = "openAiChatModel")
-    public OpenAiChatModel getModel(@Value("${com.andreidodu.company.brochure.openai-api-key}") String apiKey) {
+    public OpenAiChatModel getModel(@Value("${com.andreidodu.openai-api-key}") String apiKey) {
         return OpenAiChatModel.builder()
                 .apiKey(apiKey)
                 .modelName(GPT_4_O_MINI)
