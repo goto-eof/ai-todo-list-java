@@ -1,6 +1,6 @@
 # AI Company Brochure Generator (Java)
 
-![console-result](images/company-brochure-generator-header.png)
+![console-result](images/header.png)
 
 ### Runt the Java application
 
