@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.util.Tuple;
 
+import java.io.IOException;
 import java.util.Set;
 
 @Slf4j
@@ -24,23 +25,34 @@ public class BrochureMakerServiceImpl implements BrochureMakerService {
     @Override
     public void makeBrochure(String website) {
         try {
-            Set<String> linkList = UrlUtil.findLinks(website);
             BrochureMakerAgent brochureMakerAgent = AiServices.create(BrochureMakerAgent.class, openAiChatModel);
-            var links = brochureMakerAgent.decideSuitableLinks(website, linkList.toString());
-            JSONObject obj = new JSONObject(links);
-            JSONArray relevantLinkList = obj.getJSONArray("links");
-            String pageContentList = relevantLinkList.toList()
-                    .parallelStream()
-                    .map(link -> UrlUtil.getPageContent((String) link))
-                    .reduce("", (partialString, element) -> partialString + "\n\n" + element._1() + "\n" + element._2(), (a, b) -> a + b);
+
+            JSONArray relevantLinkList = retrieveRelevantLinkList(website, brochureMakerAgent);
+
+            String allPageContents = mergePageContentOfEachLink(relevantLinkList);
 
             Tuple<String, String> homePageContent = UrlUtil.getPageContent(website);
 
-            String brochure = brochureMakerAgent.makeBrochure(homePageContent._1(), pageContentList);
+            String brochure = brochureMakerAgent.makeBrochure(homePageContent._1(), allPageContents);
+
             log.info(brochure);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
+    }
+
+    private static String mergePageContentOfEachLink(JSONArray relevantLinkList) {
+        return relevantLinkList.toList()
+                .parallelStream()
+                .map(link -> UrlUtil.getPageContent((String) link))
+                .reduce("", (partialString, element) -> partialString + "\n\n" + element._1() + "\n" + element._2(), (a, b) -> a + b);
+    }
+
+    private static JSONArray retrieveRelevantLinkList(String website, BrochureMakerAgent brochureMakerAgent) throws IOException {
+        Set<String> linkList = UrlUtil.findLinks(website);
+        var links = brochureMakerAgent.decideSuitableLinks(website, linkList.toString());
+        JSONObject obj = new JSONObject(links);
+        return obj.getJSONArray("links");
     }
 
 
