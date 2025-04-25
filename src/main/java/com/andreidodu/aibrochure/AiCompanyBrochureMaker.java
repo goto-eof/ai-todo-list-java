@@ -1,6 +1,6 @@
-package com.andreidodu.aidemo;
+package com.andreidodu.aibrochure;
 
-import com.andreidodu.aidemo.service.BrochureMakerService;
+import com.andreidodu.aibrochure.service.BrochureMakerService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

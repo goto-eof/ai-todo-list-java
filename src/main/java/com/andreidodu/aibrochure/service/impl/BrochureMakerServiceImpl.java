@@ -1,8 +1,8 @@
-package com.andreidodu.aidemo.service.impl;
+package com.andreidodu.aibrochure.service.impl;
 
-import com.andreidodu.aidemo.agent.BrochureMakerAgent;
-import com.andreidodu.aidemo.service.BrochureMakerService;
-import com.andreidodu.aidemo.util.UrlUtil;
+import com.andreidodu.aibrochure.agent.BrochureMakerAgent;
+import com.andreidodu.aibrochure.service.BrochureMakerService;
+import com.andreidodu.aibrochure.util.UrlUtil;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.andreidodu.aidemo.agent;
+package com.andreidodu.aibrochure.agent;
 
 import dev.langchain4j.service.*;
 

@@ -1,4 +1,4 @@
-package com.andreidodu.aidemo.util;
+package com.andreidodu.aibrochure.util;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

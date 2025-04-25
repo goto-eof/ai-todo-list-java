@@ -1,4 +1,4 @@
-package com.andreidodu.aidemo.config;
+package com.andreidodu.aibrochure.config;
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Value;

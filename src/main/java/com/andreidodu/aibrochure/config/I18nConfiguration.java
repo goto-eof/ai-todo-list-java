@@ -1,4 +1,4 @@
-package com.andreidodu.aidemo.config;
+package com.andreidodu.aibrochure.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
