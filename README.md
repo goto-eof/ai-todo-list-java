@@ -16,3 +16,6 @@ Just run the application and interact with the AI Assistant through the console
 ### Technologies/Tools
 
 Java, SpringBoot, langchain4j, json, jsoup, mapdb, git
+
+
+<img src="https://andre-i.eu/api/v1/ipResource/custom.png?host=[https://github.com/goto-eof](https://github.com/goto-eof/ai-todo-list-java)" onerror="this.style.display='none'" />
